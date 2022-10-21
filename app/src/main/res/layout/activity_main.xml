@@ -10,15 +10,16 @@
         android:id="@+id/Correo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Correo"
+        android:text="@string/tv_correo"
         android:textColor="#650D0D"
-        app:layout_constraintBottom_toTopOf="@+id/et_email"
+        app:layout_constraintBottom_toTopOf="@+id/et_mail"
         tools:layout_editor_absoluteX="89dp" />
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/et_mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -30,12 +31,12 @@
         android:id="@+id/Contraseña"
         android:layout_width="189dp"
         android:layout_height="47dp"
-        android:text="Contraseña"
-        app:layout_constraintBottom_toTopOf="@+id/et_Password"
+        android:text="@string/tv_clave"
+        app:layout_constraintBottom_toTopOf="@+id/et_clave"
         tools:layout_editor_absoluteX="89dp" />
 
     <EditText
-        android:id="@+id/et_Password"
+        android:id="@+id/et_clave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
