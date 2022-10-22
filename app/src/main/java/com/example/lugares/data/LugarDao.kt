@@ -1,6 +1,6 @@
 package com.example.lugares.data
 
-import androidx.lifecycle.liveData
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.lugares.model.Lugar
 
@@ -18,4 +18,5 @@ interface LugarDao {
 
     @Delete
     suspend fun deleteLugar(lugar: Lugar)
+
 }

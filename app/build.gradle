@@ -3,11 +3,12 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id 'kotlin-parcelize'
+    id 'kotlin-android'
     id 'androidx.navigation.safeargs.kotlin'
 }
 apply plugin:'kotlin-kapt'
-//aplly plugin:'com.google.gms.google-services'
-//aplly plugin:'androidx.navigation.safeargs.kotlin'
+apply plugin:'com.google.gms.google-services'
+apply plugin:'androidx.navigation.safeargs.kotlin'
 
 //generar enlace entre la vista y el codigo
 android.buildFeatures.viewBinding true

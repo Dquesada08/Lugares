@@ -11,12 +11,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import java.time.LocalDate
 import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,31 +28,29 @@ class MainActivity : AppCompatActivity() {
         binding.btLogin.setOnClickListener(){
             hacerlogin();
         }
-        //Metodo de registro
+        //Metodo de login
         binding.btRegister.setOnClickListener(){
             hacerRegister();
         }
     }
-}
 
-    private fun hacerRegister(){
+    private fun hacerRegister() {
         var email = binding.etMail.text.toString()
         var clave = binding.etClave.text.toString()
 
         //Registra
-
         auth.createUserWithEmailAndPassword(email,clave)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful){
-                    Log.d("Creando Usuario", "registrado")
+                    Log.d("Creando Usuario", "Registrado")
                     val user = auth.currentUser
-                    if (user != null){
+                    if (user != null) {
                         actualiza(user)
                     }
                 }else{
                     Log.d("Creando Usuario", "Fallo")
-                    Toast.makeText(baseContext, "Fallo",Toast.LENGTH_LONG).show()
-                    //Actualiza(null)
+                    Toast.makeText(baseContext, "Fallo", Toast.LENGTH_LONG).show()
+                    //actualiza(null)
                 }
             }
     }
@@ -63,31 +61,31 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    //Autenticado no pida mas inicio de sesion a menos que la cerremos
+
     public override fun onStart(){
         super.onStart()
         val usuario = auth.currentUser
         actualiza(usuario)
-}
+    }
 
-    private fun hacerlogin(){
+    private fun hacerlogin() {
         var email = binding.etMail.text.toString()
         var clave = binding.etClave.text.toString()
 
         //Se hace el login
-
         auth.signInWithEmailAndPassword(email,clave)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful){
-                    Log.d("Autenticando", "Autenticado")
+                    Log.d("Autenticando", "Atenticado")
                     val user = auth.currentUser
-                    if (user != null){
+                    if (user != null) {
                         actualiza(user)
                     }
                 }else{
-                    Log.d("Autenticando", "Fallo")
-                    Toast.makeText(baseContext, "Fallo",Toast.LENGTH_LONG).show()
-                    //Actualiza(null)
+                    Log.d("Atenticado", "Fallo")
+                    Toast.makeText(baseContext, "Fallo", Toast.LENGTH_LONG).show()
+                    //actualiza(null)
                 }
             }
     }
+}
